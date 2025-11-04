@@ -11,8 +11,8 @@ import pytesseract
 from PIL import Image
 
 
-from google.colab import drive
-drive.mount('/content/drive')
+# from google.colab import drive
+# drive.mount('/content/drive')
 
 
 

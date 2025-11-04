@@ -108,7 +108,10 @@ import os
 import json
 
 
-img_folder = "invoices"
+import tempfile, os
+img_folder = os.path.join(tempfile.gettempdir(), "invoices")
+os.makedirs(img_folder, exist_ok=True)
+
 
 data = {}
 

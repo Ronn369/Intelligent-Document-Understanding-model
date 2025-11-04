@@ -167,7 +167,8 @@ else:
 json_output = json.dumps(data, indent=4)
 
 
-output_path = "ai-document-project/output_ocr_with_classification.json"
+output_path = "/content/drive/MyDrive/ ai-document-project/output_ocr_with_classification.json"
+
 with open(output_path, "w", encoding="utf-8") as json_file:
     json_file.write(json_output)
 

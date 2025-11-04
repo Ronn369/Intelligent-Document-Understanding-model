@@ -335,7 +335,7 @@ print(json.dumps(structured_data, indent=4))
 
 #this is the section where i am doing extra and after this i will start the deployment
 
-!pip install SpeechRecognition gtts playsound==1.2.2 pydub
+
 
 import speech_recognition as sr
 from gtts import gTTS

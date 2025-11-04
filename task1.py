@@ -42,7 +42,18 @@ import os
 import json
 
 
-img_folder = "invoices"
+import tempfile, os
+
+# ✅ Create a safe, temporary, writable folder for Streamlit or local runs
+img_folder = os.path.join(tempfile.gettempdir(), "invoices")
+os.makedirs(img_folder, exist_ok=True)
+
+print(f"[INFO] Image folder being used: {img_folder}")
+
+# Optional safety check
+if not os.listdir(img_folder):
+    print("⚠️ No images found in", img_folder)
+
 
 
 data = {}
@@ -172,7 +183,30 @@ import json
 import re
 
 
-img_folder = "/content/drive/MyDrive/ ai-document-project/data"
+# import tempfile, os
+
+# Create a safe, temporary, writable folder for Streamlit or local runs
+# img_folder = os.path.join(tempfile.gettempdir(), "invoices")
+# os.makedirs(img_folder, exist_ok=True)
+import tempfile, os
+
+# ✅ Create a safe, temporary, writable folder for Streamlit or local runs
+img_folder = os.path.join(tempfile.gettempdir(), "invoices")
+os.makedirs(img_folder, exist_ok=True)
+
+print(f"[INFO] Image folder being used: {img_folder}")
+
+# Optional safety check
+if not os.listdir(img_folder):
+    print("⚠️ No images found in", img_folder)
+
+
+print(f"[INFO] Image folder being used: {img_folder}")
+
+# Optional safety check
+if not os.listdir(img_folder):
+    print(" No images found in", img_folder)
+
 
 
 data = {}
@@ -276,7 +310,18 @@ from PIL import Image
 import pytesseract
 
 
-img_folder = "/content/drive/MyDrive/ ai-document-project/data/invoices"
+import tempfile, os
+
+#  Create a safe, temporary, writable folder for Streamlit or local runs
+img_folder = os.path.join(tempfile.gettempdir(), "invoices")
+os.makedirs(img_folder, exist_ok=True)
+
+print(f"[INFO] Image folder being used: {img_folder}")
+
+# Optional safety check
+if not os.listdir(img_folder):
+    print(" No images found in", img_folder)
+
 
 
 data = {}
@@ -288,7 +333,7 @@ for file in os.listdir(img_folder):
         text = pytesseract.image_to_string(Image.open(img_path))
         data[file] = {"extracted_text": text.strip()}
 
-# Convert to formatted JSON string and print
+
 json_output = json.dumps(data, indent=4, ensure_ascii=False)
 print("Extracted JSON Output:\n")
 print(json_output)
@@ -300,7 +345,18 @@ from PIL import Image
 import pytesseract
 
 
-img_folder = "/content/drive/MyDrive/ ai-document-project/data/invoices"
+import tempfile, os
+
+#  Create a safe, temporary, writable folder for Streamlit or local runs
+img_folder = os.path.join(tempfile.gettempdir(), "invoices")
+os.makedirs(img_folder, exist_ok=True)
+
+print(f"[INFO] Image folder being used: {img_folder}")
+
+# Optional safety check
+if not os.listdir(img_folder):
+    print(" No images found in", img_folder)
+
 
 results = {}
 
@@ -437,7 +493,7 @@ for i, doc in enumerate(data, start=1):
 
     summary += " End of document summary."
 
-    print(f"\n📄 Summary {i}: {summary}\n")
+    print(f"\n Summary {i}: {summary}\n")
 
 
     filename = f"summary_{i}.mp3"

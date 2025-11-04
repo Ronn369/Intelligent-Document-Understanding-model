@@ -7,11 +7,14 @@ Original file is located at
     https://colab.research.google.com/drive/1zJ0f3kS5-cKKwlEHpxn6OXfiyNv_oZ5y
 """
 
+import pytesseract
+from PIL import Image
+
+
 from google.colab import drive
 drive.mount('/content/drive')
 
-!apt install tesseract-ocr
-!pip install pytesseract pillow
+
 
 import pytesseract
 from PIL import Image
@@ -356,7 +359,7 @@ def listen_command():
         print("🗣️ You said:", command)
         return command.lower()
     except sr.UnknownValueError:
-        print("❌ Sorry, I didn’t catch that.")
+        print(" Sorry, I didn’t catch that.")
         return ""
 
 import json
@@ -393,7 +396,6 @@ for i, doc in enumerate(data, start=1):
 
     time.sleep(3)
 
-!pip install networkx matplotlib pyvis
 
 import json
 import networkx as nx
@@ -423,5 +425,5 @@ net.from_nx(G)
 net.show("knowledge_graph.html")
 
 #we are starting the deployment process
-!pip install streamlit pyttsx3 pytesseract pillow networkx pyvis
+
 

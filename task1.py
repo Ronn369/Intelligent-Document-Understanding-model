@@ -8,6 +8,12 @@ Original file is located at
 """
 
 import pytesseract
+
+# Explicitly tell pytesseract where to find the tesseract executable
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+
+
+import pytesseract
 from PIL import Image
 
 

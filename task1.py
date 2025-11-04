@@ -55,11 +55,21 @@ for file in os.listdir(img_folder):
         data[file] = {"extracted_text": text.strip()}
 
 
-json_output = json.dumps(data, indent=4)
+
 
 output_path = "/content/drive/MyDrive/ ai-document-project/output_ocr.json"
+import os
+import json
+
+# Ensure output directory exists before saving
+output_folder = os.path.dirname(output_path)
+if output_folder:  # only create if a folder path exists
+    os.makedirs(output_folder, exist_ok=True)
+
+# Now safely write JSON data
 with open(output_path, "w", encoding="utf-8") as json_file:
-    json_file.write(json_output)
+    json.dump(data, json_file, ensure_ascii=False, indent=4)
+
 
 
 print("\n Extracted JSON Output:\n")

@@ -62,13 +62,38 @@ import os
 import json
 
 # Ensure output directory exists before saving
-output_folder = os.path.dirname(output_path)
-if output_folder:  # only create if a folder path exists
-    os.makedirs(output_folder, exist_ok=True)
+import os
+import json
+import tempfile
+import streamlit as st
 
-# Now safely write JSON data
-with open(output_path, "w", encoding="utf-8") as json_file:
-    json.dump(data, json_file, ensure_ascii=False, indent=4)
+# 'data' is the dictionary you built earlier with the extracted results
+# If you don't already have `data`, ensure this block runs after `data` is defined.
+
+try:
+    # Use a safe, writable temporary directory
+    temp_dir = tempfile.gettempdir()                # e.g. /tmp
+    output_filename = "extracted_output.json"
+    output_path = os.path.join(temp_dir, output_filename)
+
+    # Write JSON to the temp directory
+    with open(output_path, "w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, ensure_ascii=False, indent=4)
+
+    # Log/show the path (useful for debugging in Streamlit logs)
+    st.write(f" Saved output to a writable temp folder: `{output_path}`")
+
+    # Display the JSON result directly in the Streamlit app
+    st.subheader(" Extracted JSON Output")
+    st.json(data)
+
+except PermissionError as e:
+    st.error("PermissionError: Unable to write output file to the chosen location.")
+    st.write("Error details (redacted):", str(e))
+except Exception as e:
+    st.error("An unexpected error occurred while saving the output.")
+    st.write("Error details:", str(e))
+
 
 
 

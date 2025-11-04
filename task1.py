@@ -44,7 +44,7 @@ import json
 
 import tempfile, os
 
-# ✅ Create a safe, temporary, writable folder for Streamlit or local runs
+#  Create a safe, temporary, writable folder for Streamlit or local runs
 img_folder = os.path.join(tempfile.gettempdir(), "invoices")
 os.makedirs(img_folder, exist_ok=True)
 
@@ -68,7 +68,8 @@ for file in os.listdir(img_folder):
 
 
 
-output_path = "/content/drive/MyDrive/ ai-document-project/output_ocr.json"
+output_path = "/content/drive/MyDrive/ ai-document-project/output_ocr_with_classification.json"
+
 import os
 import json
 
@@ -190,7 +191,7 @@ import re
 # os.makedirs(img_folder, exist_ok=True)
 import tempfile, os
 
-# ✅ Create a safe, temporary, writable folder for Streamlit or local runs
+# Create a safe, temporary, writable folder for Streamlit or local runs
 img_folder = os.path.join(tempfile.gettempdir(), "invoices")
 os.makedirs(img_folder, exist_ok=True)
 

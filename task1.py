@@ -128,7 +128,17 @@ def classify_document(text):
     return "Unknown"
 
 
-for file in os.listdir(img_folder):
+# for file in os.listdir(img_folder):
+    # ✅ Safe check before listing files
+if os.path.exists(img_folder):
+    for file in os.listdir(img_folder):
+        file_path = os.path.join(img_folder, file)
+        if os.path.isfile(file_path):
+            # your existing code for handling the file
+            pass
+else:
+    st.warning("No image folder found. Please upload images first.")
+
     if file.endswith(('.png', '.jpg', '.jpeg')):
         img_path = os.path.join(img_folder, file)
         text = pytesseract.image_to_string(Image.open(img_path))

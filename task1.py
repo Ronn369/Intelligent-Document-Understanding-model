@@ -108,7 +108,7 @@ import os
 import json
 
 
-img_folder = "/content/drive/MyDrive/ ai-document-project/data/invoices"
+img_folder = "invoices"
 
 data = {}
 
@@ -129,7 +129,7 @@ def classify_document(text):
 
 
 # for file in os.listdir(img_folder):
-    # ✅ Safe check before listing files
+    #  Safe check before listing files
 if os.path.exists(img_folder):
     for file in os.listdir(img_folder):
         file_path = os.path.join(img_folder, file)

@@ -20,7 +20,7 @@ import pytesseract
 from PIL import Image
 import os
 
-img_folder = "/content/drive/MyDrive/ ai-document-project/data/invoices"
+img_folder = "invoices"
 print(os.listdir(img_folder))  # just to verify images are listed
 
 for file in os.listdir(img_folder):

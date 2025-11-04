@@ -1,0 +1,11 @@
+streamlit
+pandas
+Pillow
+pytesseract
+gtts
+pydub
+speechrecognition
+networkx
+pyvis
+torch
+transformers

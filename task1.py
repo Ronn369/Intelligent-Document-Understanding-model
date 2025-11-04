@@ -169,8 +169,22 @@ json_output = json.dumps(data, indent=4)
 
 output_path = "/content/drive/MyDrive/ ai-document-project/output_ocr_with_classification.json"
 
-with open(output_path, "w", encoding="utf-8") as json_file:
-    json_file.write(json_output)
+import tempfile, os, json, streamlit as st
+
+#  Always use Streamlit’s writable temp directory
+temp_dir = tempfile.gettempdir()
+output_path = os.path.join(temp_dir, "output_ocr_with_classification.json")
+
+try:
+    with open(output_path, "w", encoding="utf-8") as json_file:
+        json.dump(data, json_file, ensure_ascii=False, indent=4)
+
+    st.success(f" Output saved successfully to: {output_path}")
+    st.subheader("Extracted JSON Output")
+    st.json(data)
+
+except Exception as e:
+    st.error(f" Error saving file: {e}")
 
 
 print("\n Extracted and Classified Data (JSON):\n")

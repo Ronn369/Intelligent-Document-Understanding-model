@@ -98,7 +98,7 @@ except Exception as e:
 
 
 print("\n Extracted JSON Output:\n")
-print(json_output)
+# print(json_output)
 
 print(f"\n Extracted text also saved to: {output_path}")
 
@@ -393,11 +393,11 @@ def listen_command():
     """Capture a voice command from microphone (useful in local runs)."""
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
-        print("🎙️ Speak now...")
+        print(" Speak now...")
         audio = recognizer.listen(source)
     try:
         command = recognizer.recognize_google(audio)
-        print("🗣️ You said:", command)
+        print("You said:", command)
         return command.lower()
     except sr.UnknownValueError:
         print(" Sorry, I didn’t catch that.")

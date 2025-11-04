@@ -42,7 +42,7 @@ import os
 import json
 
 
-img_folder = "/content/drive/MyDrive/ ai-document-project/data/invoices"
+img_folder = "invoices"
 
 
 data = {}
